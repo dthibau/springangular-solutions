@@ -8,6 +8,9 @@ import { ProductService } from '../service/product-service';
 })
 export class ProductListComponent implements OnInit {
 
+  displayedColumns: string[] = ['reference', 'nom', 'availability'];
+
+
   public products: Array<any> = [];
 
   constructor(private productService: ProductService) { 
