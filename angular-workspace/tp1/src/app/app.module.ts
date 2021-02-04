@@ -4,6 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { ProductService } from './service/product-service';
+import { FakeService } from './service/fake-service';
+
+
 
 @NgModule({
   declarations: [
@@ -14,7 +18,9 @@ import { ProductListComponent } from './product-list/product-list.component';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: ProductService, useClass: FakeService }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
