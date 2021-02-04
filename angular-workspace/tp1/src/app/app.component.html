@@ -1,3 +1,17 @@
-<div>
-  <app-product-list> </app-product-list>
-</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<mat-toolbar color="primary">
+  <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+  <span class="tool-spacer"></span>
+  <button mat-button [matMenuTriggerFor]="menu">Produits</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Liste</button>
+    <button mat-menu-item>Nouveau</button>
+  </mat-menu>
+</mat-toolbar>
+</nav>
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened>Start</mat-sidenav>
+  <mat-sidenav-content>
+   <app-product-list></app-product-list>
+  </mat-sidenav-content>
+</mat-sidenav-container>
