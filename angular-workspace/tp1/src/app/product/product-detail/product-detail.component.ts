@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Product } from 'src/app/model/product';
 import { ProductService } from 'src/app/service/product-service';
 
@@ -13,6 +14,7 @@ export class ProductDetailComponent implements OnInit {
 
   private product: Product = new Product();
   productForm!: FormGroup;
+  private prixSubscription!: Subscription;
 
   constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder, 
     private productService: ProductService) { 
@@ -32,10 +34,18 @@ export class ProductDetailComponent implements OnInit {
     
   }
 
+  ngOnDestroy(): void {
+    if ( this.prixSubscription != null ) {
+      this.prixSubscription.unsubscribe();
+    }
+  }
+
   save() {
     let id = this.product.id;
     this.product = this.productForm.value;
+    console.log(this.product);
     if ( id > 0 ) {
+      this.product.id = id;
       this.product = this.productService.update(this.product); 
     } else {
       this.product = this.productService.create(this.product); 
@@ -52,8 +62,7 @@ export class ProductDetailComponent implements OnInit {
       prixUnitaire: [this.product.prixUnitaire, Validators.min(1)]
     });
     // Filter les lettres
-    this.productForm.get('prixUnitaire')!.valueChanges.subscribe((newValue) => {
-      console.log("Value changed !");
+    this.prixSubscription = this.productForm.get('prixUnitaire')!.valueChanges.subscribe((newValue) => {
       if ( newValue.match(/[a-z]/i) ) {
         this.productForm.get('prixUnitaire')!.setValue(newValue.replaceAll(/[a-z]/ig,''));
       }

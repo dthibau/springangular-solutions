@@ -1,9 +1,37 @@
 
+<div class=".container-fluid">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Référence</th>
+                <th>Nom</th>
+                <th>Prix unitaire</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td><a [routerLink]="['/products/', product.id ]">{{product.reference}}</a></td>
+                <td>{{product.nom}}</td>
+                <td>{{product.prixUnitaire}}</td>
+                
+                <td class="text-left">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit" [routerLink]="['/products/', product.id ]" class="btn btn-info btn-sm">
+                                <span class="fa fa-eye"></span>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>&nbsp;
+                            <button type="button" class="btn btn-danger btn-sm" (click)="deleteProduct(product.id)">
+                                <span class="fa fa-eye"></span>
+                                <span class="d-none d-md-inline">Supprimer</span>
+                            </button>
+                        </div>
+                    </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
-<ul>
-    <li *ngFor="let product of products">
-    {{ product.reference | uppercase }} : {{product.nom}}
-    </li>
-</ul>
+
+
 
 
