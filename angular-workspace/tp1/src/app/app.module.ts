@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductService } from './service/product-service';
 import { FakeService } from './service/fake-service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -16,7 +17,8 @@ import { FakeService } from './service/fake-service';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [
     { provide: ProductService, useClass: FakeService }
