@@ -14,8 +14,9 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.products = this.productService.findAll();
-  
+    this.productService.findAll().subscribe(data =>
+      this.products = data
+      );
   }
 
   deleteProduct(id: number) {

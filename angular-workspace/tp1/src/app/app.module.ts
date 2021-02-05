@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
@@ -12,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import { ProductPageComponent } from './product/product-page/product-page.component';
 import { FournisseurPageComponent } from './fournisseur/fournisseur-page/fournisseur-page.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
+import { ProductBackService } from './service/product-back-service';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { ProductDetailComponent } from './product/product-detail/product-detail.
     FormsModule,
     NgbModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule,
     RouterModule.forRoot([
       { path: '', redirectTo: 'products', pathMatch: 'full' },
@@ -43,7 +46,10 @@ import { ProductDetailComponent } from './product/product-detail/product-detail.
     ])
   ],
   providers: [
-    { provide: ProductService, useClass: FakeService }
+    { provide: ProductService, 
+      useFactory: (httpClient: HttpClient) => true ? new ProductBackService(httpClient) : new FakeService(),
+      deps: [HttpClient] 
+    }
   ],
   bootstrap: [AppComponent]
 })
