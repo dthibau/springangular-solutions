@@ -1,11 +1,12 @@
 import { Product } from "../model/product";
+import { Observable } from 'rxjs';
 
 export abstract class ProductService {
 
-    abstract findAll(): Array<Product>
-    abstract findOne(id: number): Product
-    abstract create(product: Product): Product
-    abstract update(product: Product): Product
-    abstract delete(id: number): void
+    abstract findAll(): Observable<Array<Product>>
+    abstract findOne(id: number): Observable<Product>
+    abstract create(product: Product): Observable<Product>
+    abstract update(product: Product): Observable<Product>
+    abstract delete(id: number): Observable<void>
 
 }

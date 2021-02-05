@@ -25,11 +25,16 @@ export class ProductDetailComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       const id = params.get('id');
       if ( id !== null ) {
-        this.product = this.productService.findOne(+id);
+         this.productService.findOne(+id).subscribe(data => {
+          this.product = data;
+          this.buildForm();
+         });
+          
       } else {
         this.product = new Product();
+        this.buildForm();
       }
-      this.buildForm();
+      
     });
     
   }
@@ -46,9 +51,11 @@ export class ProductDetailComponent implements OnInit {
     console.log(this.product);
     if ( id > 0 ) {
       this.product.id = id;
-      this.product = this.productService.update(this.product); 
+      this.productService.update(this.product).subscribe(data =>
+        this.product = data); 
     } else {
-      this.product = this.productService.create(this.product); 
+      this.productService.create(this.product).subscribe(data =>
+        this.product = data); 
     }
 
     this.router.navigate(['/products/list']);
