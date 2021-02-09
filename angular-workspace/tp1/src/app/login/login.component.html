@@ -1,0 +1,30 @@
+<!-- <div class="container">
+    <div>
+        User Name : <input type="text" name="username" [(ngModel)]="username"> Password : <input type="password" name="password" [(ngModel)]="password">
+    </div>
+    <button (click)=checkLogin() class="btn btn-success">
+    Login
+  </button>
+</div> -->
+
+<div class="container">
+        <form>
+            <table class="example-full-width" cellspacing="0">
+                <tr>
+                    <td>
+                            <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                            <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
+                    </td>
+                </tr>
+                <p *ngIf="error" class="error">
+                    {{ error }}
+                </p>
+            </table>
+        </form>
+
+        <button mat-raised-button (click)="checkLogin()" color="primary">Login</button>
+    </div>
