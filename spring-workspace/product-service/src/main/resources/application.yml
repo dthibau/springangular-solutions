@@ -6,7 +6,12 @@ spring:
 logging:
   level:
     '[org.springframework.security]': debug
-        
+
+appli:
+  secretKey: secret
+  validity: 180
+  rememberMe: 1800
+  
 ---
 spring:
   config.activate.on-profile: prod
