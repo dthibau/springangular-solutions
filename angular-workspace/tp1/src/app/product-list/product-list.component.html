@@ -1,1 +1,18 @@
-<p>product-list works!</p>
+<p [class]="style">
+    {{name}}
+</p>
+<input type="text" [(ngModel)]="name"/>
+
+<br/>
+<input type="checkbox" (change)="toggleButton()">
+<button [disabled]="disabled" #button>Click me, if you can</button>
+<br/>
+Bouton activé : {{ !button.disabled }}
+<br/>
+
+<ul>
+    <li *ngFor="let product of products">
+        {{product.reference | uppercase}} : {{product.date}}
+    </li>
+
+</ul>

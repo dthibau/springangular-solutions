@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tp1';
+
+  logEvent(event: any) {
+    console.log(event);
+  }
 }

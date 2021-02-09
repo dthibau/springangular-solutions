@@ -1,1 +1,4 @@
-p { background: yellow; }
+.red {
+  text-align: center;
+  color: red;
+}
