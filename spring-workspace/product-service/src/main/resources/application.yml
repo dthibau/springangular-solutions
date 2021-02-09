@@ -1,8 +1,12 @@
 spring:
   jpa:
-    show-sql: true
+    show-sql: false
     open-in-view: false    
-    
+
+logging:
+  level:
+    '[org.springframework.security]': debug
+        
 ---
 spring:
   config.activate.on-profile: prod
