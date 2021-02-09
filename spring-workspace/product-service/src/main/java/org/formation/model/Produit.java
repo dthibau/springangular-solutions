@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Size;
 
 import lombok.Data;
 
@@ -16,6 +17,7 @@ public class Produit {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
+	@Size(max = 5)
 	private String reference;
 	
 	private String nom;
