@@ -1,0 +1,51 @@
+package org.formation;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
+@Component
+@ConfigurationProperties("hello")
+public class HelloProperties {
+
+	private String greeting;
+	
+	private String styleCase;
+	
+	private CaseEnum style;
+	
+	private int position;
+
+	public String getGreeting() {
+		return greeting;
+	}
+
+	public void setGreeting(String greeting) {
+		this.greeting = greeting;
+	}
+
+	public String getStyleCase() {
+		return styleCase;
+	}
+
+	public void setStyleCase(String styleCase) {
+		this.styleCase = styleCase;
+	}
+
+	public CaseEnum getStyle() {
+		return style;
+	}
+
+	public void setStyle(CaseEnum style) {
+		this.style = style;
+	}
+
+	public int getPosition() {
+		return position;
+	}
+
+	public void setPosition(int position) {
+		this.position = position;
+	}
+	
+	
+}

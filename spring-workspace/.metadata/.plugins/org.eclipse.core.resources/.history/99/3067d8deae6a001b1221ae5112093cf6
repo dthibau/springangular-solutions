@@ -1,0 +1,12 @@
+package org.formation.controller;
+
+import java.util.Date;
+
+import lombok.Data;
+
+@Data
+public class ErrorDto {
+
+	private String message;
+	private Date date;
+}

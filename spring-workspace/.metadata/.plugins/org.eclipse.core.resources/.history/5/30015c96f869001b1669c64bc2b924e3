@@ -1,0 +1,9 @@
+
+server:
+  port: 8000
+
+hello:
+  greeting: Bonjour
+  position: 2
+  style: upper
+  style-case: Upper

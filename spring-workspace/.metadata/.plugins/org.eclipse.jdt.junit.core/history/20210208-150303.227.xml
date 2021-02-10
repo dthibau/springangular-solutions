@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ProduitRepositoryTest" project="product-service" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="org.formation.repository.ProduitRepositoryTest" time="0.285" displayname="ProduitRepositoryTest" uniqueid="[engine:junit-jupiter]/[class:org.formation.repository.ProduitRepositoryTest]">
+    <testcase name="test2Reference" classname="org.formation.repository.ProduitRepositoryTest" time="0.246" displayname="test2Reference()" uniqueid="[engine:junit-jupiter]/[class:org.formation.repository.ProduitRepositoryTest]/[method:test2Reference()]"/>
+    <testcase name="createProduit" classname="org.formation.repository.ProduitRepositoryTest" time="0.039" displayname="createProduit()" uniqueid="[engine:junit-jupiter]/[class:org.formation.repository.ProduitRepositoryTest]/[method:createProduit()]"/>
+  </testsuite>
+</testrun>

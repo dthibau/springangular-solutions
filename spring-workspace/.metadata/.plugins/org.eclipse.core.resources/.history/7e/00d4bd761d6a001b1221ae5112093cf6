@@ -1,0 +1,15 @@
+spring:
+  jpa:
+    show-sql: true
+    
+    
+    
+---
+spring.config.activate.on-profile: prod
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5434/f_produits
+    username: postgres
+    password: postgres
+

@@ -1,0 +1,5 @@
+package org.formation.controller;
+
+public class ProduitNotFoundException extends Exception {
+
+}

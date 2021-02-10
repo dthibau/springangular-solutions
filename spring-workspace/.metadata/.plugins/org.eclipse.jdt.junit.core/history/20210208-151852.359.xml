@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="FournisseurRepositoryTest" project="product-service" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="org.formation.repository.FournisseurRepositoryTest" time="0.267" displayname="FournisseurRepositoryTest" uniqueid="[engine:junit-jupiter]/[class:org.formation.repository.FournisseurRepositoryTest]">
+    <testcase name="testAvailability" classname="org.formation.repository.FournisseurRepositoryTest" time="0.217" displayname="testAvailability()" uniqueid="[engine:junit-jupiter]/[class:org.formation.repository.FournisseurRepositoryTest]/[method:testAvailability()]"/>
+    <testcase name="testContaining" classname="org.formation.repository.FournisseurRepositoryTest" time="0.05" displayname="testContaining()" uniqueid="[engine:junit-jupiter]/[class:org.formation.repository.FournisseurRepositoryTest]/[method:testContaining()]"/>
+  </testsuite>
+</testrun>

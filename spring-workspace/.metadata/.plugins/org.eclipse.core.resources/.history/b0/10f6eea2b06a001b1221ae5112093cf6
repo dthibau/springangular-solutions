@@ -1,0 +1,23 @@
+spring:
+  jpa:
+    show-sql: true
+    
+    
+    
+---
+spring:
+  config.activate.on-profile: prod
+
+  datasource:
+    url: jdbc:postgresql://localhost:5434/f_produits
+    username: postgres
+    password: postgres
+    hikari:
+      maximum-pool-size: 30
+      minimum-idle: 10
+      connection-timeout: 10000
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      

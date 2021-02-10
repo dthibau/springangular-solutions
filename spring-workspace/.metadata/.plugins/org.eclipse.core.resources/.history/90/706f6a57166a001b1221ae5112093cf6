@@ -1,0 +1,33 @@
+package org.formation.repository;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.formation.model.Produit;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+public class ProduitRepositoryTest {
+
+	
+	@Autowired
+	ProduitRepository produitRepository;
+	
+	
+	@Test
+	public void test2Reference() {
+		
+		assertTrue(produitRepository.findByReferenceAndFournisseurReference("TAN78", "BELLE").isPresent());
+		
+		assertTrue(produitRepository.findByReferenceAndFournisseurReference("TAN78", "BRICB").isEmpty());
+	}
+	
+	@Test
+	public void createProduit() {
+		Produit p = new Produit();
+		p.setNom("New");
+		
+		produitRepository.save(p);
+	}
+}

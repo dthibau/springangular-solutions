@@ -1,0 +1,12 @@
+
+server:
+  port: 8000
+
+
+hasard: ${random.uuid}
+
+hello:
+  greeting: Guten tag
+  position: 1
+  style: upper
+  style-case: UpperCase

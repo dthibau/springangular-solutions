@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Rerun testContaining()" project="product-service" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="org.formation.repository.FournisseurRepositoryTest" time="0.186" displayname="FournisseurRepositoryTest" uniqueid="[engine:junit-jupiter]/[class:org.formation.repository.FournisseurRepositoryTest]">
+    <testcase name="testContaining" classname="org.formation.repository.FournisseurRepositoryTest" time="0.186" displayname="testContaining()" uniqueid="[engine:junit-jupiter]/[class:org.formation.repository.FournisseurRepositoryTest]/[method:testContaining()]"/>
+  </testsuite>
+</testrun>

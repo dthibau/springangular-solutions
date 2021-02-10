@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ProductService } from '../service/product-service';
 
 
 @Component({
@@ -11,17 +12,16 @@ export class ProductListComponent implements OnInit {
   style: string = 'red'
   disabled: boolean = true
   products!: Array<any>;
+
   @Output() toggleEvent = new EventEmitter<boolean>();
 
-  constructor() { 
+  constructor(private productService: ProductService) { 
     console.log("Constructeur")
     this.name = "Hello"
   }
 
-  ngOnInit(): void {
-    
-    this.products = [{reference: 'ref1', date:'2021'}, {reference: 'ref2', date:'2020'}]
-    this.products.push({reference: 'ref3', date:'2019'})
+  ngOnInit(): void { 
+    this.products = this.productService.findAll();
     console.log("Init "+this.products)
   }
 

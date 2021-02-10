@@ -12,7 +12,7 @@ Bouton activé : {{ !button.disabled }}
 
 <ul>
     <li *ngFor="let product of products">
-        {{product.reference | uppercase}} : {{product.date}}
+        {{product.reference | uppercase}} : {{product.nom}} : {{product.prixUnitaire}}
     </li>
 
 </ul>

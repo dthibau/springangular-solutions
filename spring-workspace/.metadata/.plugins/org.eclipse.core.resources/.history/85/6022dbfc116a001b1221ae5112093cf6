@@ -1,0 +1,13 @@
+package org.formation.repository;
+
+import java.util.List;
+
+import org.formation.model.Fournisseur;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface FournisseurRepository extends JpaRepository<Fournisseur, Long> {
+
+	public List<Fournisseur> findByNomContainingIgnoreCase(String q);
+	
+	
+}
