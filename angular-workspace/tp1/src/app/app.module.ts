@@ -8,6 +8,7 @@ import { FakeProductService } from './service/fake-product.service';
 import { ProductService } from './service/product-service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -19,7 +20,12 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
   imports: [
     BrowserModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    RouterModule,
+    RouterModule.forRoot([
+      { path: '', redirectTo: 'products', pathMatch: 'full' },
+      { path: 'products', component: ProductListComponent }
+    ])
   ],
   providers: [
     { provide: ProductService, useClass: FakeProductService }
