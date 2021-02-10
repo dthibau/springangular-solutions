@@ -8,26 +8,17 @@ import { ProductService } from '../service/product-service';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  name: string;
-  style: string = 'red'
-  disabled: boolean = true
-  products!: Array<any>;
-
-  @Output() toggleEvent = new EventEmitter<boolean>();
+  public products: Array<any> = [];
 
   constructor(private productService: ProductService) { 
-    console.log("Constructeur")
-    this.name = "Hello"
   }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.products = this.productService.findAll();
-    console.log("Init "+this.products)
+  
   }
 
-  toggleButton() {
-    console.log("Toggle")
-    this.disabled = !this.disabled
-    this.toggleEvent.emit(this.disabled);
+  deleteProduct(id: number) {
+    this.productService.delete(id);
   }
 }

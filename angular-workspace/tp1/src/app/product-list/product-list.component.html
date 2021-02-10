@@ -1,18 +1,31 @@
-<p [class]="style">
-    {{name}}
-</p>
-<input type="text" [(ngModel)]="name"/>
-
-<br/>
-<input type="checkbox" (change)="toggleButton()">
-<button [disabled]="disabled" #button>Click me, if you can</button>
-<br/>
-Bouton activé : {{ !button.disabled }}
-<br/>
-
-<ul>
-    <li *ngFor="let product of products">
-        {{product.reference | uppercase}} : {{product.nom}} : {{product.prixUnitaire}}
-    </li>
-
-</ul>
+<div class=".container-fluid">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Référence</th>
+                <th>Nom</th>
+                <th>Prix unitaire</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td><a [routerLink]="['/products/', product.id ]">{{product.reference}}</a></td>
+                <td>{{product.nom}}</td>
+                <td>{{product.prixUnitaire}}</td>
+                
+                <td class="text-left">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit" [routerLink]="['/products/', product.id ]" class="btn btn-info btn-sm">
+                                <span class="fa fa-eye"></span>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>&nbsp;
+                            <button type="button" class="btn btn-danger btn-sm" (click)="deleteProduct(product.id)">
+                                <span class="fa fa-eye"></span>
+                                <span class="d-none d-md-inline">Supprimer</span>
+                            </button>
+                        </div>
+                    </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

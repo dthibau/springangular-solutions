@@ -1,1 +1,61 @@
-<p>product-detail works!</p>
+<div class="container">
+    <h1>Product Detail</h1>
+        <form [formGroup]="productForm" (ngSubmit)="save()" *ngIf="productForm">
+            <div class="form-group row">
+                <label for="reference" class="col-sm-2 col-form-label">Référence :</label>
+                <input formControlName="reference" type="text" class="form-control col-sm-10" id="reference" name="reference">
+                <div *ngIf="productForm.get('reference')!.invalid && (productForm.get('reference')!.dirty || productForm.get('reference')!.touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="productForm.get('reference')!.errors!.required">
+                        La référence est obligatoire.
+                    </div>
+                    <div *ngIf="productForm.get('reference')!.errors!.maxlength">
+                        La référence ne doit pas dépasser 5 caractères au maximum.
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group row">
+                <label for="nom" class="col-sm-2 col-form-label">Nom :</label>
+                <input formControlName="nom" type="text" class="form-control col-sm-10" id="nom" name="nom"
+                    minlength="3">
+                <div *ngIf="productForm.get('nom')!.invalid && (productForm.get('nom')!.dirty || productForm.get('nom')!.touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="productForm.get('nom')!.errors!.required">
+                        Le nom est obligatoire.
+                    </div>
+                    <div *ngIf="productForm.get('nom')!.errors!.minlength">
+                        Au minimum 3 caractères.
+                    </div>
+                </div>
+            </div>
+    
+    
+            <div class="form-group row">
+                <label for="description" class="col-sm-2 col-form-label">Description :</label>
+                <textarea class="form-control" formControlName="description" rows="3"></textarea>
+            </div>
+     
+            <div class="form-group row">
+                <label for="prixUnitaire" class="col-sm-2 col-form-label">Prix unitaire :</label>
+                <input formControlName="prixUnitaire" name="prixUnitaire" type="text" class="form-control col-sm-10">
+                <div *ngIf="productForm.get('prixUnitaire')!.invalid && (productForm.get('prixUnitaire')!.dirty || productForm.get('prixUnitaire')!.touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="productForm.get('prixUnitaire')!.errors!.min">
+                        Le prix unitaire doit être supérieur à 0
+                    </div>
+                </div>
+            </div>
+    {{productForm.errors}}
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                <button type="button" [routerLink]="['/products/list']" class="btn btn-info btn-sm">
+                  <span class="fa fa-eye"></span>
+                  <span class="d-none d-md-inline">Retour</span>
+                </button>&nbsp;
+               
+                <button type="submit" [disabled]="productForm.invalid" class="btn btn-primary">
+                  <span class="fa fa-save"></span>&nbsp;Enregistrer
+                </button>
+              </div>
+        </form>
+    </div>
