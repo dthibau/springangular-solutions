@@ -9,13 +9,19 @@ import { ProductService } from './service/product-service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { RouterModule } from '@angular/router';
+import { ProductPageComponent } from './product/product-page/product-page.component';
+import { FournisseurPageComponent } from './fournisseur/fournisseur-page/fournisseur-page.component';
+import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    ProductPageComponent,
+    FournisseurPageComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +30,14 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     RouterModule.forRoot([
       { path: '', redirectTo: 'products', pathMatch: 'full' },
-      { path: 'products', component: ProductListComponent }
+      { path: 'products', component: ProductPageComponent,
+        children: [
+          { path: '', redirectTo: 'list', pathMatch: 'full' },
+          { path: 'list', component: ProductListComponent },
+          { path: 'new', component: ProductDetailComponent },
+          { path: ':id', component: ProductDetailComponent }
+        ] },
+      { path: 'fournisseurs', component: FournisseurPageComponent}
     ])
   ],
   providers: [
